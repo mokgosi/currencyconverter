@@ -9,6 +9,7 @@ use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
