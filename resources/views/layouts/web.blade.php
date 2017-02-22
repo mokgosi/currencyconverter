@@ -32,9 +32,14 @@
                 <div class="body m-b-md">
                     @yield('content')
                 </div>
+                <div id="progress" style="display:none">
+                <img style="width:100px;" src="{{ asset('images/spinner.gif') }}"/>
             </div>
+            </div>
+             
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/web.js') }}"></script>
     </body>
+
 </html>

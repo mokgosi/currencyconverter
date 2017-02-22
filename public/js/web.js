@@ -16,6 +16,8 @@ $(function () {
             return;
         }
 
+        $('#progress').show();
+
         $.ajax({
             method: 'GET',
             url: $(this).attr('action'),
@@ -24,9 +26,11 @@ $(function () {
         }).done(function( json ) {
             $('.convertedAmount').html('').html($('#convertTo').val()+' '+json.conversion);
             $(this).attr('disabled', false);
+            $('#progress').hide();
         }).fail(function( xhr, status, errorThrown ) {
             alert( "Sorry, there was a problem - try again later!" );
             $(this).attr('disabled', false);
+            $('#progress').hide();
         });
 
         return false;
