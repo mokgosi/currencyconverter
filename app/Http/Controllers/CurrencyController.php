@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Currency;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
 use Session;
@@ -137,7 +138,7 @@ class CurrencyController extends Controller
             $code = Str_replace('USD','',$keypair);
             Currency::where('code','=',$code)->update(['usd_equivalent' => $value]);
         }
-        // $success = json_decode($res->success);
-        // return new JsonResponse(compact('conversion'));
+        $success = $quotes->success;
+        return new JsonResponse(compact('success'));
     }
 }

@@ -9,7 +9,7 @@ $(function () {
 
     $('#currencyList').DataTable();
     
-    $('#refresh-list').on('click', function(e){
+    $(document).on('click','#refresh-list', function(e){
         
         e.preventDefault
         
