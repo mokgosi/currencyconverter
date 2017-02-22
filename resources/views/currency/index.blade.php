@@ -20,7 +20,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <a href="{{ route('currencies.create')}}" class="btn btn-success btn-sm">Create New</a>
-                    <!--<a href="{{ route('refresh-list')}}" class="btn btn-warning btn-sm" id="refresh-list">Update Rates</a>-->
+                    <a href="{{ route('refresh-list')}}" class="btn btn-warning btn-sm" id="refresh-list">Update Rates</a>
                 </div>
                 <table class="table table-bordered table-striped" id='currencyList'>
                     <thead>

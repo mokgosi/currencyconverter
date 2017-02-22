@@ -16,12 +16,15 @@ $(function () {
         var url = $(this).attr('href');
         console.log(url);
         
+        $(this).attr('disabled', true);
+        
         $.ajax({
            url: $(this).attr('href'),
-           method: 'GET',
-           success: function() {
-               //reload list
-           }
+           method: 'GET'
+        }).done(function( json ) {
+            $('.container').load('/currencies');
+            $(this).attr('disabled', false);
+            $('#progress').hide();
         });
         return false;
     });

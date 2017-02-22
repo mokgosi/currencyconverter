@@ -130,10 +130,14 @@ class CurrencyController extends Controller
         $client = new Client();
         $url = env('API_LAYER_URL').'/live?access_key='.env('API_LAYER_TOKEN');
         activity()->log('Refresh Currency List.');
-//    	$res = $client->request('GET', $url);
-//    	$quotes = json_decode($res->getBody());
-        
-        dd($url);
-    }
+   	    $res = $client->request('GET', $url);
+   	    $quotes = json_decode($res->getBody());
 
+        foreach($quotes->quotes as $keypair => $value) {
+            $code = Str_replace('USD','',$keypair);
+            Currency::where('code','=',$code)->update(['usd_equivalent' => $value]);
+        }
+        // $success = json_decode($res->success);
+        // return new JsonResponse(compact('conversion'));
+    }
 }
