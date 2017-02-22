@@ -52,6 +52,8 @@ class CurrencyController extends Controller
         $currency->created_at = Carbon::now();
         $currency->updated_at = Carbon::now();
         $currency->save();
+
+        activity()->log('Added new currency: '.$currency->name.' - '.$currency->code);
         
 //        Currency::create($request->all());
         return redirect()->route('currencies.index')
@@ -98,6 +100,8 @@ class CurrencyController extends Controller
         $currency->code = $request->input('code');
         $currency->save();
         
+        activity()->log('Updated currency: '.$currency->name.' - '.$currency->code);
+
         Session::flash('success','Currency updated successfully.');
 
         return redirect()->route('currencies.index');
@@ -111,6 +115,7 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
+        activity()->log('Deleted currency: '.$currency->name.' - '.$currency->code);
         $currency->delete();
         return redirect()->route('currencies.index');
     }
@@ -124,6 +129,7 @@ class CurrencyController extends Controller
     {
         $client = new Client();
         $url = env('API_LAYER_URL').'/live?access_key='.env('API_LAYER_TOKEN');
+        activity()->log('Refresh Currency List.');
 //    	$res = $client->request('GET', $url);
 //    	$quotes = json_decode($res->getBody());
         

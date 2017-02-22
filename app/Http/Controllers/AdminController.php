@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Currency;
 use App\AuditTrail;
+use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
@@ -44,8 +45,9 @@ class AdminController extends Controller
     
     public function auditTrail()
     {
-        $audits = AuditTrail::orderBy('created_at','desc')
-                ->paginate(10);
+        $audits = Activity::orderBy('created_at','desc')->paginate(10);
+        // $audits = AuditTrail::orderBy('created_at','desc')
+        //         ->paginate(10);
         return view('admin.audit', compact('audits'));
     }
 }

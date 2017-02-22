@@ -25,6 +25,7 @@
                 <table class="table table-bordered table-striped" id='currencyList'>
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Currency</th>
                             <th>Code</th>
                             <th>USD_Eq.</th>
@@ -32,8 +33,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 0; ?>
                         @foreach($currencies as $currency)
                         <tr>
+                            <td>{{ ++$i }}</td>
                             <td>{{ $currency->name }}</td>
                             <td>{{ $currency->code }}</td>
                             <td>{{ $currency->usd_equivalent }}</td>
