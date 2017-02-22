@@ -30,7 +30,7 @@ class WebController extends Controller
     	$body = json_decode($results->getBody());
         $rate = $body->$query;
 
-        activity()->log('Conversion request : '.$query);
+        activity()->log('Conversion request: '.$request->input('amount').':'.$query);
 
         $conversion = ($rate->val * $request->input('amount'));
 
