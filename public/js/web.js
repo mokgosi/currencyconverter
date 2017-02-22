@@ -11,6 +11,14 @@ $(function () {
             return;
         }
 
+        var valid = ($('#amount').val().match(/^-?\d*(\.\d+)?$/));
+
+        if(!valid) {
+            alert('Please enter valid amount');
+            $('#amount').val('');
+            return;
+        }
+
         if($('#convertFrom').val() == $('#convertTo').val()) {
             alert('Please select different currency to convert to.');
             return;
