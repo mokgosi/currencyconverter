@@ -2,7 +2,7 @@ Installation
 
 clone: https://github.com/mokgosi/currencyconverter.git
 
-From projet folder, run
+From projet root folder, run
 
 -- composer update
 
