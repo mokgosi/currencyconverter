@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\File;
 use GuzzleHttp\Client;
 
 use App\Currency;
+use DB;
 
 class WebController extends Controller
 {
 
     public function index()
     {
-        $currencies = Currency::pluck('code', 'code');
+        $currencies = Currency::select('code', DB::raw("concat(code, ' - ',name) as code_name"))
+                ->pluck('code_name', 'code');
+
         return view('web.index',compact('currencies'));
     }
 

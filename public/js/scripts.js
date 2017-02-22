@@ -25,6 +25,9 @@ $(function () {
             $('.container').load('/currencies');
             $(this).attr('disabled', false);
             $('#progress').hide();
+        }).fail(function( xhr, status, errorThrown ) {
+            alert( "Sorry, there was a problem - try again later!" );
+            $(this).attr('disabled', false);
         });
         return false;
     });

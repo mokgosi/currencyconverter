@@ -77,7 +77,7 @@
                                     <li><a href="{{ route('admin') }}">Dashboard</a>
                                     <li><a href="{{ route('currencies.index') }}">Manage Currencies</a>
                                     <li><a href="{{ route('audit-trail') }}">Audit Trail</a>
-                                    <li><a href="{{ route('site') }}">Site</a>
+                                    <li><a href="{{ route('site') }}">Converter</a>
                                 </ul>
                             </li>
                             @endif
