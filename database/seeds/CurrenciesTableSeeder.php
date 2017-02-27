@@ -36,44 +36,9 @@ class CurrenciesTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'name' => "Australian Dollar",
-                'code' => "AUD",
-                'usd_equivalent' => "1.300597",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => "Euro",
-                'code' => "EUR",
-                'usd_equivalent' => "0.942195",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => "British Pound Sterling",
-                'code' => "GBP",
-                'usd_equivalent' => "0.80223",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => "Japanese Yen",
-                'code' => "JPY",
-                'usd_equivalent' => "113.105003",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
                 'name' => "United States Dollar",
                 'code' => "USD",
                 'usd_equivalent' => "1",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => "Bitcoin",
-                'code' => "BTC",
-                'usd_equivalent' => "0.000944",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

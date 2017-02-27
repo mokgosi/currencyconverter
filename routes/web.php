@@ -24,3 +24,5 @@ Route::get('/refresh', 'CurrencyController@refresh')->name('refresh-list');
 
 Route::get('/audit-trail', 'AdminController@auditTrail')->name('audit-trail');
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::resource('rates', 'RatesController');

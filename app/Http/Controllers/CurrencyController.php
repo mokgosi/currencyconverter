@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Currency;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
+use App\Currency;
+use App\Rate;
 use Session;
 
 class CurrencyController extends Controller
@@ -147,7 +149,25 @@ class CurrencyController extends Controller
             $code = Str_replace('USD','',$keypair);
             Currency::where('code','=',$code)->update(['usd_equivalent' => $value]);
         }
+
         $success = $quotes->success;
+
+        $this->updateRates();
+
         return new JsonResponse(compact('success'));
+    }
+
+    public function updateRates() {
+        $rates = Rate::all();
+
+        $client = new Client();
+
+        foreach($rates as $key => $values) {
+            $url = env('CURR_CONV_API_URL').'/convert?q='.$values['pair'].'&compact=y';
+            $res = $client->request('GET', $url);
+            $body = json_decode($res->getBody());
+            $rate = $body->$query;
+            Rate::where('pair','=',$values['pair'])->update(['rate' => $rate->val]);
+        }
     }
 }

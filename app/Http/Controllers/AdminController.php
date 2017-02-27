@@ -40,7 +40,7 @@ class AdminController extends Controller
         $currencies = json_decode($contents);
                 
         foreach ($currencies->quotes as $key => $value) {
-        
+            
         }
     }
     

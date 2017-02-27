@@ -47,6 +47,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                            <li><a href="{{ route('currencies.index') }}">Currencies</a></li>
+                           <li><a href="{{ route('rates.index') }}">Rates</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
